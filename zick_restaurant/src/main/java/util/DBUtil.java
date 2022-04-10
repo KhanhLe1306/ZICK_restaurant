@@ -78,6 +78,46 @@ public class DBUtil {
 		}
 		return list;
 	}
+	
+	public static boolean signup(String firstName, String lastName, String userName, String password) {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		
+		try {
+			DBConnectionLe.getDBConnection();
+			connection = DBConnectionLe.connection;
+			String selectSQL = "select * from Identity where Username = ?";
+			preparedStatement = connection.prepareStatement(selectSQL);
+			preparedStatement.setString(1, userName);
+			ResultSet rs = preparedStatement.executeQuery();	
+			if(!rs.next()) { //Username is unique
+				String insertCustomer = "insert into Customer (Firstname, Lastname) values (\"" + firstName + "\",\"" + lastName + "\")";
+				String insertIdentity = "insert into Identity (Username, Password) values (\"" + userName + "\",\"" + password + "\")";
+				preparedStatement = connection.prepareStatement(insertCustomer);
+				preparedStatement.executeUpdate();	
+				preparedStatement = connection.prepareStatement(insertIdentity);
+				preparedStatement.executeUpdate();	
+			}else {
+				return false;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} catch (SQLException se2) {
+			}
+			try {
+				if (connection != null)
+					connection.close();
+			} catch (SQLException se) {
+				se.printStackTrace();
+			}
+		}
+		
+		return true;
+	}
 
 //	public static void insertTodo(String title, String done) {
 //		Connection connection = null;

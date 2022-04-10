@@ -8,7 +8,7 @@ import java.io.FileNotFoundException;
 
 public class UtilPropLe {
    static final boolean _W = System.getProperty("os.name").toLowerCase().contains("windows");
-   static String _PROP_FILENAME_WIN_LOCAL = "C:\\Users\\khanh\\Desktop\\UNO-Courses\\CSCI-4830 Intro to Software Engineering\\TermProject4830\\zick_restaurant\\src\\main\\webapp\\config.properties";
+   static String _PROP_FILENAME_WIN_LOCAL = "C:\\Users\\khanh\\git\\zick_restaurant\\zick_restaurant\\src\\main\\webapp\\config.properties";
    static String _PROP_FILENAME_OSX_LOCAL = "/Users/khanhlee/4830/workspace4830/workspaceCSCI-4830-ex-0211-Le/webproject-ex-0211-Le/src/main/webapp/config.properties";
    // * Remote server path
    static String _PROP_FILENAME_REMOTE = "/var/lib/tomcat7/webapps/zick_restaurant/config.properties";
