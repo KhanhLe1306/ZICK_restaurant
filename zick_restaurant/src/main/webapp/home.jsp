@@ -10,7 +10,12 @@
 	<h2>This is Home page</h2>
 	
 	<a href="/zick_restaurant/Menu"><button>View Menu</button></a>
-	<a href="/zick_restaurant/Admin"><button>View all Customers</button></a>
+	
+	<%
+		if(session.getAttribute("adminId") != null){%>
+			<a href="/zick_restaurant/Admin"><button>View all Customers</button></a>	
+		<%}
+	%>
 </body>
 
 </html>

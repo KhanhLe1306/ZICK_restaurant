@@ -1,46 +1,33 @@
 package controllers;
 
 import java.io.IOException;
-import java.util.List;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import models.Customer;
-import models.Product;
-
 /**
- * Servlet implementation class Menu
+ * Servlet implementation class Cart
  */
-@WebServlet("/Menu")
-public class Menu extends HttpServlet {
+@WebServlet("/Cart")
+public class Cart extends HttpServlet {
 	private static final long serialVersionUID = 1L;
- 
-    public Menu() {
+    public Cart() {
         super();
         // TODO Auto-generated constructor stub
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		List<Product> productList = util.DBUtil.getMenu();
-		request.setAttribute("productList", productList);
-		
-		response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
-		RequestDispatcher rd = request.getRequestDispatcher("menu.jsp");
-		rd.forward(request, response);
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
+		
+		System.out.println(request.getAttribute("name"));
 	}
 
 }

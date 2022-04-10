@@ -45,6 +45,42 @@ public class DBUtil {
 		return list;
 	}
 	
+	public static Customer getCustomer(int id) {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		Customer customer = null;
+		try {
+			DBConnectionLe.getDBConnection();
+			connection = DBConnectionLe.connection;
+			String selectSQL = "select * from Customer where Customer_id = ?";
+			preparedStatement = connection.prepareStatement(selectSQL);
+			preparedStatement.setInt(1, id);
+			ResultSet rs = preparedStatement.executeQuery();	
+			if(rs.next()) { //Found user
+				String firstName = rs.getString("Firstname");
+				String lastName = rs.getString("Lastname");
+				String createdOn = rs.getString("Created_on");
+				customer = new Customer(id, firstName, lastName, createdOn);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} catch (SQLException se2) {
+			}
+			try {
+				if (connection != null)
+					connection.close();
+			} catch (SQLException se) {
+				se.printStackTrace();
+			}
+		}
+		
+		return customer;
+	}
+	
 	public static List<Product> getMenu() {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -118,6 +154,74 @@ public class DBUtil {
 		
 		return true;
 	}
+	
+	public static int getIdentity(String userName, String password) {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		int customerId = 0;
+		try {
+			DBConnectionLe.getDBConnection();
+			connection = DBConnectionLe.connection;
+			String selectSQL = "select * from Identity where Username = ? and Password = ?";
+			preparedStatement = connection.prepareStatement(selectSQL);
+			preparedStatement.setString(1, userName);
+			preparedStatement.setString(2, password);
+			ResultSet rs = preparedStatement.executeQuery();	
+			while(rs.next()) { //Found user
+				customerId = rs.getInt("Customer_id");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} catch (SQLException se2) {
+			}
+			try {
+				if (connection != null)
+					connection.close();
+			} catch (SQLException se) {
+				se.printStackTrace();
+			}
+		}
+		
+		return customerId;
+	}
+	
+	public static int getAdminId(int id) {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		int adminId = 0;
+		try {
+			DBConnectionLe.getDBConnection();
+			connection = DBConnectionLe.connection;
+			String selectSQL = "select * from Admin where Customer_id = ?";
+			preparedStatement = connection.prepareStatement(selectSQL);
+			preparedStatement.setInt(1, id);
+			ResultSet rs = preparedStatement.executeQuery();	
+			if(rs.next()) { //Found admin
+				adminId = rs.getInt("Admin_id");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} catch (SQLException se2) {
+			}
+			try {
+				if (connection != null)
+					connection.close();
+			} catch (SQLException se) {
+				se.printStackTrace();
+			}
+		}
+		
+		return adminId;
+	}
+	
 
 //	public static void insertTodo(String title, String done) {
 //		Connection connection = null;
