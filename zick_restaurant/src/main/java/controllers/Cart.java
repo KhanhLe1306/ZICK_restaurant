@@ -1,11 +1,15 @@
 package controllers;
 
 import java.io.IOException;
+import java.util.Enumeration;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import models.Product;
 
 /**
  * Servlet implementation class Cart
@@ -27,7 +31,13 @@ public class Cart extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 		
-		System.out.println(request.getAttribute("name"));
+		Enumeration paramNames = request.getParameterNames();
+		while(paramNames.hasMoreElements()) {
+			String paramName = (String)paramNames.nextElement();
+			System.out.print(paramName + " ");
+			System.out.println(request.getParameter(paramName + "_quantity"));
+			paramNames.nextElement();
+		}
 	}
 
 }

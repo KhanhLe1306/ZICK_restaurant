@@ -94,7 +94,7 @@ public class DBUtil {
 			ResultSet rs = preparedStatement.executeQuery();	
 			while(rs.next()) {
 				Product product = new Product(rs.getString("Product_code"), rs.getString("Name"), rs.getString("Price"), rs.getString("Description"));
-				System.out.println(product);
+//				System.out.println(product);
 				list.add(product);
 			}
 		} catch (Exception e) {
