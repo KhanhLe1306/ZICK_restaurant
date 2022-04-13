@@ -31,11 +31,11 @@ public class Cart extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 		
-		Enumeration paramNames = request.getParameterNames();
+		Enumeration paramNames = request.getParameterNames();	// get all "name" parameters
 		while(paramNames.hasMoreElements()) {
-			String paramName = (String)paramNames.nextElement();
+			String paramName = (String)paramNames.nextElement(); //1st 3rd 5th ... will be product code
 			System.out.print(paramName + " ");
-			System.out.println(request.getParameter(paramName + "_quantity"));
+			System.out.println(request.getParameter(paramName + "_quantity")); // use the product code with _quantity to get the quantity.
 			paramNames.nextElement();
 		}
 	}

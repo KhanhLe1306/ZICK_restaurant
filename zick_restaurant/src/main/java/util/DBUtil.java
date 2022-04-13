@@ -128,10 +128,24 @@ public class DBUtil {
 			ResultSet rs = preparedStatement.executeQuery();	
 			if(!rs.next()) { //Username is unique
 				String insertCustomer = "insert into Customer (Firstname, Lastname) values (\"" + firstName + "\",\"" + lastName + "\")";
-				String insertIdentity = "insert into Identity (Username, Password) values (\"" + userName + "\",\"" + password + "\")";
 				preparedStatement = connection.prepareStatement(insertCustomer);
 				preparedStatement.executeUpdate();	
-				preparedStatement = connection.prepareStatement(insertIdentity);
+				
+				String selectLastInsertId = "select last_insert_id()";
+				preparedStatement = connection.prepareStatement(selectLastInsertId);
+				ResultSet rs1 = preparedStatement.executeQuery();	
+				int id = 0;
+				if(rs1.next()) {
+					System.out.println(id);
+					id = rs1.getInt("last_insert_id()");
+					System.out.println(id);
+				}
+				
+				String insertIdentity = " insert into Identity (Username, Password, Customer_id) values (\"" + userName + "\", \"" + password +"\" , " + id + ")";
+				preparedStatement = connection.prepareStatement(insertIdentity);	
+//				preparedStatement.setString(1, userName);
+//				preparedStatement.setString(2, password);
+//				preparedStatement.setInt(3, id);	//No idea why this setString and setInt dont work
 				preparedStatement.executeUpdate();	
 			}else {
 				return false;
