@@ -24,6 +24,8 @@
 	<%-- <c:forEach var="item" items="${cart}">
 		<span> ${item.name} </span> x <span> ${item.quantity} </span> Total: <span> </span>
 	</c:forEach> --%>
+	
+	<h1>lqk1306 just made some changes here! HOLA</h1>
 </body>
 
 </html>
