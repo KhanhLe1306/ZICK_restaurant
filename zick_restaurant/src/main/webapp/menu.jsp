@@ -12,7 +12,10 @@
 	<form action="Cart" method="post">
 		<c:forEach var="product" items="${productList}">
 			<div style="border-bottom: 2px solid pink;">
-				<input type="hidden" name="${product.productCode}" value="${product}" />
+				<input type="hidden" name="${product.productCode}" value="${product.productCode}" />
+				<input type="hidden" name="${product.productCode}_name" value="${product.name}" />
+				<input type="hidden" name="${product.productCode}_price" value="${product.price}" />
+				<input type="hidden" name="${product.productCode}_description" value="${product.description}" />
 				<h3>${product.productCode} - ${product.name} - $${product.price}</h3>
 				<span>${product.description}</span>
 				<select name="${product.productCode}_quantity">
