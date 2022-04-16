@@ -7,7 +7,12 @@
 </head>
 
 <body>
-	<h2>This is Home page</h2>
+
+	<h2 style="color: red;">This is Home page</h2>
+	<h1 style="color: blue;"> Hello I am here CJAI </h1>
+	 
+	
+	
 	
 	<a href="/zick_restaurant/Menu"><button>View Menu</button></a>
 	
