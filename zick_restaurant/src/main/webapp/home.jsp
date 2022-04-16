@@ -9,6 +9,8 @@
 <body>
 	<h2>This is Home page</h2>
 	
+	<h1>Khanh Le is here</h1>
+	
 	<a href="/zick_restaurant/Menu"><button>View Menu</button></a>
 	
 	<%
