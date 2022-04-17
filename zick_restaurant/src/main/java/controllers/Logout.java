@@ -22,6 +22,8 @@ public class Logout extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
 		response.getWriter().append("Inside logout servlet");
 		HttpSession session = request.getSession();
+		session.removeAttribute("cart");
+		session.removeAttribute("total");
 		session.removeAttribute("customerId");
 		session.removeAttribute("adminId");
 		response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
