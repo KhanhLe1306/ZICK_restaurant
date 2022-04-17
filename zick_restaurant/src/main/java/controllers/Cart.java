@@ -59,9 +59,13 @@ public class Cart extends HttpServlet {
 				paramNames.nextElement();
 				System.out.println();
 			}
-			request.setAttribute("cart", cart);
-			RequestDispatcher rd = request.getRequestDispatcher("cart.jsp");
-			rd.forward(request, response);
+			session.setAttribute("cart", cart);
+			/*
+			 * request.setAttribute("cart", cart); RequestDispatcher rd =
+			 * request.getRequestDispatcher("cart.jsp"); rd.forward(request, response);
+			 */
+			
+			response.sendRedirect("cart.jsp");
 			
 			//Store cart information inside session
 			

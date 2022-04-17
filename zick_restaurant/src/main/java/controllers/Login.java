@@ -36,7 +36,7 @@ public class Login extends HttpServlet {
 		System.out.println(id);
 		
 		if(id == 0) {
-			request.setAttribute("message", "Customer does not exit!");
+			request.setAttribute("message", "Customer does not exist!");
 			RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
 			dispatcher.forward(request, response);
 		}else {
@@ -47,7 +47,8 @@ public class Login extends HttpServlet {
 				response.sendRedirect("home.jsp");
 			}else {
 				HttpSession session = request.getSession();
-				session.setAttribute("adminId", id);
+				session.setAttribute("customerId", id);
+				session.setAttribute("adminId", adminId);
 				response.sendRedirect("home.jsp");
 			}
 		}

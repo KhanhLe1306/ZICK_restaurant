@@ -4,8 +4,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 import models.*;
 
@@ -234,6 +239,65 @@ public class DBUtil {
 		}
 		
 		return adminId;
+	}
+
+	public static void saveOrder(int id, List<CartProduct> cart, float total) {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		try {
+			DBConnectionLe.getDBConnection();
+			connection = DBConnectionLe.connection;
+			String insertSQL = "insert into OrderList(Customer_id, Date_order, Total) values(?, ?, ?)";
+			preparedStatement = connection.prepareStatement(insertSQL);
+			preparedStatement.setInt(1, id);
+			preparedStatement.setString(2, getCurrentDate());
+			preparedStatement.setString(3, Float.toString(total));
+			preparedStatement.executeUpdate();	
+			
+			String selectLastInsertedOrderId = "select last_insert_id()";
+			preparedStatement = connection.prepareStatement(selectLastInsertedOrderId);
+			ResultSet rs = preparedStatement.executeQuery();	
+			int insertedId = 0;
+			if(rs.next()) {
+				insertedId = rs.getInt("last_insert_id()");
+			}
+			
+			
+			String insertSQL1 = "insert into OrderDetail(Order_id, Product_code, Quantity) values ";
+			for(CartProduct obj : cart) {
+				insertSQL1 += "(" + insertedId + ", \"" + obj.getProductCode() + "\", \" " + obj.getQuantity() + "\"),";
+			}
+			
+			StringBuilder string = new StringBuilder(insertSQL1);
+	        string.setCharAt(insertSQL1.length() - 1, ';');
+			
+	        preparedStatement = connection.prepareStatement(string.toString());
+			preparedStatement.executeUpdate();	
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} catch (SQLException se2) {
+			}
+			try {
+				if (connection != null)
+					connection.close();
+			} catch (SQLException se) {
+				se.printStackTrace();
+			}
+		}	
+	}
+	
+	public static String getCurrentDate() {
+		LocalDateTime myDateObj = LocalDateTime.now();
+	
+	    DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+
+	    String formattedDate = myDateObj.format(myFormatObj);
+	    return formattedDate;
 	}
 	
 
