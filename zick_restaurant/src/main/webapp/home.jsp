@@ -10,6 +10,9 @@
 
 	<h2 style="color: red;">This is Home page</h2>
 	<h1 style="color: blue;"> Hello I am here CJAI </h1>
+	<button> Hello, Izzi is Here</button>
+	
+	
 	 
 	
 	
