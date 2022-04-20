@@ -7,11 +7,11 @@
 </head>
 
 <body>
-
-	<h2>Menu page</h2>
+<div class="menu_container">
+	<h1 class="menu_header">Menu</h1>
 	<form action="Cart" method="post">
 		<c:forEach var="product" items="${productList}">
-			<div style="border-bottom: 2px solid pink;">
+			<div class="product">
 				<input type="hidden" name="${product.productCode}" value="${product.productCode}" />
 				<input type="hidden" name="${product.productCode}_name" value="${product.name}" />
 				<input type="hidden" name="${product.productCode}_price" value="${product.price}" />
@@ -29,6 +29,9 @@
 		
 		<button style="margin-top: 20px;" type="submit">Add to cart</button>
 	</form>
+</div>	
+	<div class="image">
+	</div>
 </body>
 
 </html>
