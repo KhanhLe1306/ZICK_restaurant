@@ -20,6 +20,9 @@
 	%>
 	</div>
 	</div>
+	
+	<div class="image">
+	</div>
 </body>
 
 </html>
