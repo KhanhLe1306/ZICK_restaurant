@@ -96,20 +96,66 @@ img{
 	min-height: 100%;
 }
 
+/*---------------------------Menu----------------------------------  */
+/*---------------------------Author: KhanhLe----------------------------------  */
 
 .menu_header{
 	font-size: 2rem;
 	margin-bottom: 2rem;
+	text-align: center;
 }
 .menu_container{
-	position: relative;
-    width: 35%;
-    top: 20%;
-    left: 65%;
+	width: 80%;
+	margin: 0 auto;
+}
+.menu_container button{
+	position: absolute;
+	bottom: 20%;
+	left: 50%;
 }
 .product{
 	margin-bottom: 1rem;
 }
+.menu__bg{
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1; 
+	background: linear-gradient(to top left, rgba(16,16,24,255),
+rgba(100,107,125,255) );
+}
+.product__container{
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: auto auto auto;
+	gap: 10px;
+}
+.product{
+	display: flex;
+	align-items: center;
+	gap: 5px;
+}
+.product_code{
+	background-color: red;
+	color: white;
+	text-align: center;
+	font-weight: bold;
+	font-size: 24px;
+	padding: 10px;
+	border-radius: 50%;
+}
+.product_name{
+	font-size: 20px;
+	font-weight: 600;
+}
+.select{
+	justify-self: flex-end;
+}
+
+/*-----------------Sign up----------------------------------  */
+/*-----------------Author: IzziPuk----------------------------------  */
 
 .signup_container{
 	position: relative;
@@ -133,7 +179,6 @@ img{
 	position: relative;
 	top: 75px;
 	left: 100px;
-	
 }
 
 .signup_input{
@@ -174,6 +219,9 @@ img{
 	top: 100px;
 	left: 205px;
 }
+
+/*-----------------------------------------------------------  */
+
 
 
 

@@ -1,5 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<%@ include file="header.jsp"%>
 <html>
 <head>
 <link type="text/css" rel="stylesheet" href="css/style.css">
@@ -17,31 +17,32 @@
 %>
 	<div class="signup_image">
 	</div>
+	
 	<div class="signup_container">
+	
 		<div class="signup_headerimg">
 		</div>
 		
 		
 		<h2 class ="signup_header">Sign Up for Free Rewards Today!</h2>
-		
 		<form action="Signup" method="post">
 		<table>
 			<tr>
-				<td align="right"><lable class="signup_lable" for="firstname">First Name:</lable></td>
+				<td align="right"><label class="signup_lable" for="firstname">First Name:</label></td>
 				<td align="left"><input type="text" class="signup_input" name="firstname"/></td>
 			</tr>
 			
 			<tr>
-				<td align="right"><lable class="signup_lable" for="lastname">Last Name:</lable></td>
+				<td align="right"><label class="signup_lable" for="lastname">Last Name:</label></td>
 				<td align="left"><input type="text" class="signup_input"  name="lastname"/></td>
 			</tr>
 			<tr>
-				<td align="right"><lable class="signup_lable" for="username">Username:</lable></td>
-				<td align="left"><input type="text" class="signup_input" name="username"/></td>
+				<td align="right"><label class="signup_lable" for="username">Username:</label></td>
+				<td align="left"><input type="text" class="signup_input" id="username" name="username"/></td>
 			</tr>
 			<tr>
-			<td align="right"><lable class="signup_lable" for="password">Password:</lable></td>
-			<td align="left"><input type="password" class="signup_input" name="password"/></td>
+				<td align="right"><label class="signup_lable" for="password">Password:</label></td>
+				<td align="left"><input type="password" class="signup_input" name="password"/></td>
 			</tr>
 		</table>
 			<button class="signup_button" type="submit">Sign Up</button>
