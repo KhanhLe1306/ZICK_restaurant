@@ -12,19 +12,29 @@
 		<h1>${message}</h1>
 	<%}
 %>
-	<h2>This is Login page</h2>
+<div class="signup_image">
+	</div>
 	
-	<form action="Login" method="post">
-	<div>
-		<label for="username">Username</label>
-		<input type="text" name="username"/>
+	<div class="signup_container">
+	
+		<div class="signup_headerimg">
+		</div>
+		
+		<form action="Login" method="post">
+		<table>
+			<tr>
+				<td align="right"><label class="signup_lable" for="username">Username:</label></td>
+				<td align="left"><input type="text" class="signup_input" name="username"/></td>
+			</tr>
+			
+			<tr>
+				<td align="right"><label class="signup_lable" for="password">Password:</label></td>
+				<td align="left"><input type="text" class="signup_input"  name="password"/></td>
+		</table>
+			<button class="login_button" type="submit">Login</button>
+		</form>
 	</div>
-	<div>
-		<label for="password">Password</label>
-		<input type="password" name="password"/>
-	</div>
-		<button type="submit">Log in</button>
-	</form>
+	
 </body>
 
 </html>
