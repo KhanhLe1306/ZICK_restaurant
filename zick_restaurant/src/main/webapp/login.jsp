@@ -20,7 +20,7 @@
 		<div class="signup_headerimg">
 		</div>
 		
-		<form action="Signup" method="post">
+		<form action="Login" method="post">
 		<table>
 			<tr>
 				<td align="right"><label class="signup_lable" for="username">Username:</label></td>
