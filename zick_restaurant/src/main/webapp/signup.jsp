@@ -18,10 +18,11 @@
 	<div class="signup_image">
 	</div>
 	
+	<div class="signup_headerimg">
+	</div>
+	
 	<div class="signup_container">
 	
-		<div class="signup_headerimg">
-		</div>
 		
 		
 		<h2 class ="signup_header">Sign Up for Free Rewards Today!</h2>
