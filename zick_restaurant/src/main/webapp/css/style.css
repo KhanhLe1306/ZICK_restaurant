@@ -24,7 +24,7 @@ nav {
 	font-size: 3rem;
 	font-weight: bold;
 	margin-right: 1rem;
-	flex: 35%;
+	flex: 40%;
 	text-align: center;
 }
 .links{
@@ -32,7 +32,7 @@ nav {
 	gap: 1rem;
 	list-style: none;
 	align-items: center;
-	flex: 30%;
+	flex: 25%;
 }
 .links a{
 	text-decoration: none;
@@ -160,8 +160,8 @@ rgba(100,107,125,255) );
 .signup_container{
 	position: relative;
     width: 50%;
-    top: 3%;
-    left: 32%;
+    top: 20%;
+    left: 34%;
 }
 
 .signup_header{
@@ -191,7 +191,7 @@ rgba(100,107,125,255) );
 
 .signup_image{
 	width: 100vw;
-	height: 100vh;
+	height: 90%;
 	position: absolute;
 	z-index: -2;
 	background-image: url("../assets/background.jpg"); 
@@ -201,11 +201,11 @@ rgba(100,107,125,255) );
 }
 
 .signup_headerimg{
-	width: 16.75vw;
-	height: 16vh;
+	width: 450px;
+	height: 230px;
 	position: relative;
-	top: 0;
-	left: 160px;
+	top: 5%;
+	left: 36%;
 	z-index: -1; 
 	background: url("../assets/logo.jpg"); 
 	background-position: center;
