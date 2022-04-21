@@ -6,6 +6,7 @@
 	color: red;
 }
 
+
 body{
 	max-height: 100vh;
 	max-width: 100vw;
@@ -91,7 +92,7 @@ button:hover{
 	background-size: cover;
 }
 img{
-	width: 100%;
+	min-width: 100%;
 	min-height: 100%;
 }
 
@@ -109,3 +110,71 @@ img{
 .product{
 	margin-bottom: 1rem;
 }
+
+.signup_container{
+	position: relative;
+    width: 50%;
+    top: 3%;
+    left: 32%;
+}
+
+.signup_header{
+	
+	font-size: 35px;
+	color: white;
+	position: relative;
+	top: 40px;
+	left: 22px;
+}
+
+.signup_lable{
+	font-size: 20px;
+	color: white;
+	position: relative;
+	top: 75px;
+	left: 100px;
+	
+}
+
+.signup_input{
+	font-size: 19px;
+	color: black;
+	position: relative;
+	top: 75px;
+	left: 105px;
+}
+
+.signup_image{
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	z-index: -2;
+	background-image: url("../assets/background.jpg"); 
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.signup_headerimg{
+	width: 16.75vw;
+	height: 16vh;
+	position: relative;
+	top: 0;
+	left: 160px;
+	z-index: -1; 
+	background: url("../assets/logo.jpg"); 
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.signup_button{
+	font-weight: bold;
+	position: relative;
+	top: 100px;
+	left: 205px;
+}
+
+
+
+

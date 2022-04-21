@@ -6,33 +6,49 @@
 
 </head>
 
+
+
 <body>
+
 <%
 	if(request.getAttribute("message") != null){%>
 		<h1>${message}</h1>
 	<%}
 %>
-	<h2>This is Signup page</h2>
+	<div class="signup_image">
+	</div>
+	<div class="signup_container">
+		<div class="signup_headerimg">
+		</div>
+		
+		
+		<h2 class ="signup_header">Sign Up for Free Rewards Today!</h2>
+		
+		<form action="Signup" method="post">
+		<table>
+			<tr>
+				<td align="right"><lable class="signup_lable" for="firstname">First Name:</lable></td>
+				<td align="left"><input type="text" class="signup_input" name="firstname"/></td>
+			</tr>
+			
+			<tr>
+				<td align="right"><lable class="signup_lable" for="lastname">Last Name:</lable></td>
+				<td align="left"><input type="text" class="signup_input"  name="lastname"/></td>
+			</tr>
+			<tr>
+				<td align="right"><lable class="signup_lable" for="username">Username:</lable></td>
+				<td align="left"><input type="text" class="signup_input" name="username"/></td>
+			</tr>
+			<tr>
+			<td align="right"><lable class="signup_lable" for="password">Password:</lable></td>
+			<td align="left"><input type="password" class="signup_input" name="password"/></td>
+			</tr>
+		</table>
+			<button class="signup_button" type="submit">Sign Up</button>
+		</form>
+	</div>
 	
-	<form action="Signup" method="post">
-	<div>
-		<label for="firstname">First name</label>
-		<input type="text" name="firstname"/>
-	</div>
-	<div>
-		<label for="lastname">Last name</label>
-		<input type="text" name="lastname"/>
-	</div>
-	<div>
-		<label for="username">Username</label>
-		<input type="text" name="username"/>
-	</div>
-	<div>
-		<label for="password">Password</label>
-		<input type="password" name="password"/>
-	</div>
-		<button type="submit">Sign up</button>
-	</form>
+	
 </body>
 
 </html>
