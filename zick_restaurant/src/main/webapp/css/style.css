@@ -211,6 +211,7 @@ rgba(100,107,125,255) );
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
+
 }
 
 .signup_button{
@@ -223,6 +224,23 @@ rgba(100,107,125,255) );
 /*-----------------------------------------------------------  */
 
 
+/*-----------------Login----------------------------------  */
+/*-----------------Author: IzziPuk----------------------------------  */
+
+.login_container{
+	position: relative;
+    width: 50%;
+    top: 3%;
+    left: 32%;
+}
 
 
+.login_button{
+	font-weight: bold;
+	position: relative;
+	top: 100px;
+	left: 195px;
+}
+
+/*-----------------------------------------------------------  */
 
