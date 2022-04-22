@@ -15,10 +15,11 @@
 <div class="signup_image">
 	</div>
 	
+	<div class="signup_headerimg">
+		</div>
+	
 	<div class="signup_container">
 	
-		<div class="signup_headerimg">
-		</div>
 		
 		<form action="Login" method="post">
 		<table>
