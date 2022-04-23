@@ -158,10 +158,14 @@ rgba(100,107,125,255) );
 /*-----------------Author: IzziPuk----------------------------------  */
 
 .signup_container{
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: center;
+	align-content: center;
 	position: relative;
     width: 50%;
-    top: 20%;
-    left: 34%;
+    top: 5%;
+    left: 25%;
 }
 
 .signup_header{
@@ -214,6 +218,7 @@ rgba(100,107,125,255) );
 
 }
 
+
 .signup_button{
 	font-weight: bold;
 	position: relative;
@@ -228,10 +233,13 @@ rgba(100,107,125,255) );
 /*-----------------Author: IzziPuk----------------------------------  */
 
 .login_container{
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: center;
 	position: relative;
     width: 50%;
     top: 3%;
-    left: 32%;
+    left: 34%;
 }
 
 
@@ -292,6 +300,36 @@ rgba(100,107,125,255) );
 
 .aboutus_p{
 	font-family: "Monaco", monospace;
+}
+
+/*-----------------------------------------------------------  */
+
+/*-----------------Contact----------------------------------  */
+/*-----------------Author: IzziPuk----------------------------------  */
+
+.contact_container{
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: center;
+	align-items: flex-start; 
+	column-gap: 50px;
+	position: relative;
+	top: 10%;
+	left: 5%;
+	row-gap: 30px;
+}
+
+.contact_dcontainer{
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: center;
+	align-items: center;
+	padding: 20px; 
+    position: relative;
+    width: 25%;
+    top: 5%; 
+	background-color: white;
+	border: 2px dashed red;
 }
 
 /*-----------------------------------------------------------  */
