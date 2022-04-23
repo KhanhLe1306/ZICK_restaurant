@@ -10,7 +10,7 @@
 		<h1 class="logo_name">ZICK RESTAURANT</h1>
 		<ul class="links">
 			<li><a href="home.jsp">Home</a></li>
-			<li><a href="#">About Us</a></li>
+			<li><a href="aboutus.jsp">About Us</a></li>
 			<li><a href="#">Contact</a></li>
 		</ul>
 		<div class="nav__buttons">
