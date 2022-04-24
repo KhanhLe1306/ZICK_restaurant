@@ -124,7 +124,7 @@ rgba(100,107,125,255) );
 }
 
 .product_container{
-	display: felx;
+	display: flex;
 	flex-flow: column wrap;
 	justify-content: center;
 	align-items: center;
