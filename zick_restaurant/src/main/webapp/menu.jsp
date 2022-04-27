@@ -6,7 +6,7 @@
 
 </head>
 
-<body>
+<body style="background-color: black">
 		<h1 class="menu_header">Menu</h1>
 		<form action="Cart" method="post">
 			<div class="menu_container">
@@ -17,11 +17,11 @@
 						<input type="hidden"name="${product.productCode}_name" value="${product.name}" />
 					    <input type="hidden" name="${product.productCode}_price" value="${product.price}" /> 
 						<input type="hidden" name="${product.productCode}_description" value="${product.description}" />
-						<table>
+						<table class="product_table">
 							<tr>
 								<td align="left" class="product_name">${product.name}</td>
-								<td align="center" class="product_price">$${product.price}</td>
-								<td class="select">
+								<td align="right" class="product_price">$${product.price}</td>
+								<td align="right" class="select">
 									<select
 										name="${product.productCode}_quantity">
 										<option value="0">0</option>
@@ -37,45 +37,17 @@
 						</table>
 					</c:forEach>
 				</div>
-					
 				<div class="product_container">
-					<h2 class="section_header">Steaks</h2>
-					<c:forEach var="product" items="${productList}" begin="16" end="20">
+					<h2 class="section_header">Seafood</h2>
+					<c:forEach var="product" items="${productList}" begin="12" end="15">
 							<input type="hidden" name="${product.productCode}" value="${product.productCode}" /> 
 							<input type="hidden"name="${product.productCode}_name" value="${product.name}" />
 						    <input type="hidden" name="${product.productCode}_price" value="${product.price}" /> 
 						    <input type="hidden" name="${product.productCode}_description" value="${product.description}" />
-							    <table>
-								<tr>
-									<td align="left" class="product_name">${product.name}</td>
-									<td align="center" class="product_price">$${product.price}</td>
-									<td align="right" class="select">
-										<select
-											name="${product.productCode}_quantity">
-											<option value="0">0</option>
-											<option value="1">1</option>
-											<option value="2">2</option>
-											<option value="3">3</option>
-										</select>
-									</td>
-								</tr>
-								<tr>
-									<td class="product_description">${product.description}</td>
-								</tr>
-								</table>
-						</c:forEach>
-					</div>
-				    <div class="product_container">
-						<h2 class="section_header">Seafood</h2>
-						<c:forEach var="product" items="${productList}" begin="12" end="15">
-							<input type="hidden" name="${product.productCode}" value="${product.productCode}" /> 
-							<input type="hidden"name="${product.productCode}_name" value="${product.name}" />
-						    <input type="hidden" name="${product.productCode}_price" value="${product.price}" /> 
-						    <input type="hidden" name="${product.productCode}_description" value="${product.description}" />
-							<table>
+							<table class="product_table">
 							<tr>
 								<td align="left" class="product_name">${product.name}</td>
-								<td align="center" class="product_price">$${product.price}</td>
+								<td align="right" class="product_price">$${product.price}</td>
 								<td align="right" class="select">
 									<select
 										name="${product.productCode}_quantity">
@@ -92,17 +64,44 @@
 							</table>
 						</c:forEach>
 					</div>
-				<div class="product_container">
-					<h2 class="section_header">Specialty Entres</h2>
-					<c:forEach var="product" items="${productList}" begin="21" end="23">
-						<input type="hidden" name="${product.productCode}" value="${product.productCode}" /> 
+				    <div class="product_container">
+						<h2 class="section_header">Steaks</h2>
+						<c:forEach var="product" items="${productList}" begin="16" end="20">
+							<input type="hidden" name="${product.productCode}" value="${product.productCode}" /> 
 							<input type="hidden"name="${product.productCode}_name" value="${product.name}" />
 						    <input type="hidden" name="${product.productCode}_price" value="${product.price}" /> 
 						    <input type="hidden" name="${product.productCode}_description" value="${product.description}" />
-							<table>
+							    <table class="product_table">
+								<tr>
+									<td align="left" class="product_name">${product.name}</td>
+									<td align="right" class="product_price">$${product.price}</td>
+									<td align="right" class="select">
+										<select
+											name="${product.productCode}_quantity">
+											<option value="0">0</option>
+											<option value="1">1</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<td class="product_description">${product.description}</td>
+								</tr>
+								</table>
+						</c:forEach>
+					</div>
+				<div class="product_container">
+					<h2 class="section_header">Specialty Entres</h2>
+					<c:forEach var="product" items="${productList}" begin="21" end="23">
+						    <input type="hidden" name="${product.productCode}" value="${product.productCode}" /> 
+							<input type="hidden"name="${product.productCode}_name" value="${product.name}" />
+						    <input type="hidden" name="${product.productCode}_price" value="${product.price}" /> 
+						    <input type="hidden" name="${product.productCode}_description" value="${product.description}" />
+							<table class="product_table">
 							<tr>
 								<td align="left" class="product_name">${product.name}</td>
-								<td align="center" class="product_price">$${product.price}</td>
+								<td align="right" class="product_price">$${product.price}</td>
 								<td align="right" class="select">
 									<select
 										name="${product.productCode}_quantity">
@@ -122,17 +121,14 @@
 				<div class="product_container">
 				<h2 class="section_header">Sides</h2>
 				<c:forEach var="product" items="${productList}" begin="7" end="11">
-						<input type="hidden" name="${product.productCode}"
-							value="${product.productCode}" /> <input type="hidden"
-							name="${product.productCode}_name" value="${product.name}" /> <input
-							type="hidden" name="${product.productCode}_price"
-							value="${product.price}" /> <input type="hidden"
-							name="${product.productCode}_description"
-							value="${product.description}" />
-							<table>
+							<input type="hidden" name="${product.productCode}" value="${product.productCode}" /> 
+							<input type="hidden"name="${product.productCode}_name" value="${product.name}" />
+						    <input type="hidden" name="${product.productCode}_price" value="${product.price}" /> 
+						    <input type="hidden" name="${product.productCode}_description" value="${product.description}" />
+							<table class="product_table">
 							<tr>
 								<td align="left" class="product_name">${product.name}</td>
-								<td align="center" class="product_price">$${product.price}</td>
+								<td align="right" class="product_price">$${product.price}</td>
 								<td align="right" class="select">
 									<select
 										name="${product.productCode}_quantity">
@@ -159,10 +155,10 @@
 							value="${product.price}" /> <input type="hidden"
 							name="${product.productCode}_description"
 							value="${product.description}" />
-							<table>
+							<table class="product_table">
 							<tr>
 								<td align="left" class="product_name">${product.name}</td>
-								<td align="center" class="product_price">$${product.price}</td>
+								<td align="right" class="product_price">$${product.price}</td>
 								<td align="right" class="select">
 									<select
 										name="${product.productCode}_quantity">
