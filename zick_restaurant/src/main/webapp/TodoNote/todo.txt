@@ -1,0 +1,19 @@
+---- ViewOrderStatus Feature ----
+
+		Admin can update order status
+		
+		keep track of order number
+
+1. add status to OrderList table with code:
+	1 - ordered
+	2 - in progress
+	3 - done 
+	
+3. Get orderId when customer orders
+
+2. If admin then show all orders that are either in "ordered" or "in progress" status else just their order
+	1. Get orderInfo
+	
+	2. Display in viewOrderStatus.jsp
+
+3. Update order status
