@@ -3,6 +3,7 @@ package controllers;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -33,7 +34,7 @@ public class PlaceOrder extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
 		HttpSession session = request.getSession();
 		System.out.println("\nInside the PlaceOrder doGet");
 		int id = (int) session.getAttribute("customerId");
@@ -51,7 +52,11 @@ public class PlaceOrder extends HttpServlet {
 		 * for (CartProduct obj : cart) { System.out.println(obj.getName()); }
 		 */
 		
-		DBUtil.saveOrder(id, cart, total);
+		int orderId = DBUtil.saveOrder(id, cart, total);
+		
+		request.setAttribute("orderId", orderId);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/ViewOrderStatus");
+		dispatcher.forward(request, response);
 	}
 
 	/**
