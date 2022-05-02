@@ -8,7 +8,7 @@
 
 
 <html>
-	<body style="background-color: black">
+	<body style="background-color: black>">
 		<div class="contact_container">
 			<div class="contact_tcontainer">
 				<div class="contact_dcontainer">
