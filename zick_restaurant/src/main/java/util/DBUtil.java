@@ -208,6 +208,7 @@ public class DBUtil {
 		return customerId;
 	}
 	
+	
 	public static int getAdminId(int id) {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -241,31 +242,34 @@ public class DBUtil {
 		return adminId;
 	}
 
-	public static void saveOrder(int id, List<CartProduct> cart, float total) {
+	public static int saveOrder(int id, List<CartProduct> cart, float total) {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
+		
+		int orderId = 0;
+		
 		try {
 			DBConnectionLe.getDBConnection();
 			connection = DBConnectionLe.connection;
-			String insertSQL = "insert into OrderList(Customer_id, Date_order, Total) values(?, ?, ?)";
+			String insertSQL = "insert into OrderList(Customer_id, Date_order, Total, Status) values(?, ?, ?, ?)";
 			preparedStatement = connection.prepareStatement(insertSQL);
 			preparedStatement.setInt(1, id);
 			preparedStatement.setString(2, getCurrentDate());
 			preparedStatement.setString(3, Float.toString(total));
+			preparedStatement.setString(4, "ordered");
 			preparedStatement.executeUpdate();	
 			
 			String selectLastInsertedOrderId = "select last_insert_id()";
 			preparedStatement = connection.prepareStatement(selectLastInsertedOrderId);
 			ResultSet rs = preparedStatement.executeQuery();	
-			int insertedId = 0;
 			if(rs.next()) {
-				insertedId = rs.getInt("last_insert_id()");
+				orderId = rs.getInt("last_insert_id()");
 			}
 			
 			
 			String insertSQL1 = "insert into OrderDetail(Order_id, Product_code, Quantity) values ";
 			for(CartProduct obj : cart) {
-				insertSQL1 += "(" + insertedId + ", \"" + obj.getProductCode() + "\", \" " + obj.getQuantity() + "\"),";
+				insertSQL1 += "(" + orderId + ", \"" + obj.getProductCode() + "\", \" " + obj.getQuantity() + "\"),";
 			}
 			
 			StringBuilder string = new StringBuilder(insertSQL1);
@@ -288,7 +292,67 @@ public class DBUtil {
 			} catch (SQLException se) {
 				se.printStackTrace();
 			}
-		}	
+		}
+		
+		return orderId;
+	}
+	
+	public static OrderInfo getOrderInfo(int orderId) {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		
+		int customerId = 0;			//selectSQL1
+		String dateOrdered = null;
+		String total = null;
+		String status = null;		
+		
+		List<Product> products = new ArrayList<>();	//selectSQL2
+		
+		try {
+			DBConnectionLe.getDBConnection();
+			connection = DBConnectionLe.connection;
+			String selectSQL1 = "select * from OrderList where Order_id = ?";
+			preparedStatement = connection.prepareStatement(selectSQL1);
+			preparedStatement.setInt(1, orderId);
+			ResultSet rs1 = preparedStatement.executeQuery();	
+			if(rs1.next()) {		//Only one record cuz orderId is a PK
+				customerId = rs1.getInt("Customer_id");
+				dateOrdered = rs1.getString("Date_order");
+				total = rs1.getString("Total");
+				status = rs1.getString("Status");
+			}
+			
+			String selectSQL2 = "select * from Product "
+							  + "inner join OrderDetail on OrderDetail.Product_code = Product.Product_code "
+							  + "where OrderDetail.Order_id = ?";
+			preparedStatement = connection.prepareStatement(selectSQL2);
+			preparedStatement.setInt(1, orderId);
+			ResultSet rs2 = preparedStatement.executeQuery();
+			while(rs2.next()) {
+				String pcode = rs2.getString("Product_code");
+				String name = rs2.getString("Name");
+				String price = rs2.getString("Price");
+				String desc = rs2.getString("Description");
+				products.add(new Product(pcode, name, price, desc));
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} catch (SQLException se2) {
+			}
+			try {
+				if (connection != null)
+					connection.close();
+			} catch (SQLException se) {
+				se.printStackTrace();
+			}
+		}
+		
+		return new OrderInfo(orderId, customerId, dateOrdered, total, status, products);
 	}
 	
 	public static String getCurrentDate() {

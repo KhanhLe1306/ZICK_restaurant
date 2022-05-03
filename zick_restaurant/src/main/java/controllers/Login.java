@@ -44,13 +44,16 @@ public class Login extends HttpServlet {
 			if(adminId == 0) { //not an admin
 				HttpSession session = request.getSession();
 				session.setAttribute("customerId", id);
+				session.setAttribute("customer", DBUtil.getCustomer(id));
 				response.sendRedirect("home.jsp");
 			}else {
 				HttpSession session = request.getSession();
 				session.setAttribute("customerId", id);
 				session.setAttribute("adminId", adminId);
+				session.setAttribute("customer", DBUtil.getCustomer(id));
 				response.sendRedirect("home.jsp");
 			}
+			
 		}
 	}
 
