@@ -42,7 +42,7 @@
 			<%
 				if(session.getAttribute("customerId") != null || session.getAttribute("adminId") != null) {%>
 					<a href="/zick_restaurant/PlaceOrder"><button>Order now!</button></a>
-					<a href="menu.jsp"><button>Change Order</button></a>
+					<a href="/zick_restaurant/Menu"><button>Change Order</button></a>
 				<%} else {%>
 					<a href="login.jsp">Please sign in to order!</a>
 					<a href="signup.jsp">Don't have an account? Sign Up!</a>
