@@ -241,6 +241,16 @@ rgba(100,107,125,255) );
 	top: 100px;
 	left: 195px;
 }
+.admin_background {
+	background-color: red;
+	color: red;
+	text-align: center;
+	font-weight: bold;
+	font-size: 24px;
+	padding: 10px;
+	border-radius: 50%;
+	
+}
 
 /*-----------------------------------------------------------  */
 
