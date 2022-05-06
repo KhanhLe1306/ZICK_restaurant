@@ -20,6 +20,10 @@ nav {
 	align-items: center;
 	position: relative;
 }
+
+header {
+	background-color: white;
+}
 .logo_name{
 	font-size: 3rem;
 	font-weight: bold;
@@ -73,6 +77,7 @@ button:hover{
 	left: 65%;
 }
 .intro p{
+	color: white;
 	font-size: 2rem;
 	margin-bottom: 2rem;
 }
@@ -97,58 +102,69 @@ img{
 }
 
 /*---------------------------Menu----------------------------------  */
-/*---------------------------Author: KhanhLe----------------------------------  */
+/*---------------------------Author: KhanhLe and Izzi Puk----------------------------------  */
 
 .menu_header{
 	font-size: 2rem;
-	margin-bottom: 2rem;
+	margin-top: 2%;
+	margin-bottom: 2%;
 	text-align: center;
+	text-decoration: underline overline red;
+	font-family: "Papyrus", fantasy;
+	text-underline-position: under;
 }
-.menu_container{
-	width: 80%;
-	margin: 0 auto;
+
+
+.product_table{
+	table-layout: auto;
+	width: 100%;
 }
-.menu_container button{
-	position: absolute;
-	bottom: 20%;
-	left: 50%;
+
+.product_img{
+	max-width: 30px;
+    max-height: 30px;
+	
 }
-.product{
-	margin-bottom: 1rem;
-}
-.menu__bg{
-	width: 100vw;
-	height: 100vh;
-	position: absolute;
-	top: 0;
-	left: 0;
-	z-index: -1; 
-	background: linear-gradient(to top left, rgba(16,16,24,255),
-rgba(100,107,125,255) );
-}
-.product__container{
-	margin: 0 auto;
-	display: grid;
-	grid-template-columns: auto auto auto;
-	gap: 10px;
-}
-.product{
+.product_container{
 	display: flex;
+	flex-flow: column wrap;
+	justify-content: flex-start;
 	align-items: center;
-	gap: 5px;
+	width: 35%;
+	padding: 30px;
+	row-gap: 10px;
+	border: 2px dashed red;
 }
-.product_code{
-	background-color: red;
-	color: white;
+
+.menu_button{
+	position: relative;
+	left: 45%; 
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.menu_container{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	width: 100%;
+}
+
+.section_header{
 	text-align: center;
+	font-size: 30px;
 	font-weight: bold;
-	font-size: 24px;
-	padding: 10px;
-	border-radius: 50%;
+	color: white;
+	font-family: "Papyrus", fantasy;
 }
+
 .product_name{
 	font-size: 20px;
 	font-weight: 600;
+	width: 80%;
+}
+.product_description{
+	color: red;
 }
 .select{
 	justify-self: flex-end;
@@ -158,10 +174,14 @@ rgba(100,107,125,255) );
 /*-----------------Author: IzziPuk----------------------------------  */
 
 .signup_container{
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: center;
+	align-content: center;
 	position: relative;
     width: 50%;
-    top: 20%;
-    left: 34%;
+    top: 5%;
+    left: 25%;
 }
 
 .signup_header{
@@ -214,6 +234,7 @@ rgba(100,107,125,255) );
 
 }
 
+
 .signup_button{
 	font-weight: bold;
 	position: relative;
@@ -228,10 +249,13 @@ rgba(100,107,125,255) );
 /*-----------------Author: IzziPuk----------------------------------  */
 
 .login_container{
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: center;
 	position: relative;
     width: 50%;
     top: 3%;
-    left: 32%;
+    left: 34%;
 }
 
 
@@ -253,4 +277,161 @@ rgba(100,107,125,255) );
 }
 
 /*-----------------------------------------------------------  */
+
+
+/*-----------------About Us----------------------------------  */
+/*-----------------Author: IzziPuk----------------------------------  */
+
+.aboutus_container{
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	align-content: center; 
+	column-gap: 50px;
+	position: relative;
+	top: 10%;
+   
+}
+
+.aboutus_pcont{
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: center;
+	align-items: center;
+	padding: 30px; 
+    position: relative;
+    width: 35%;
+    top: 5%; 
+	background-color: white;
+	border: 2px solid red;
+    border-radius: 25px;
+	
+}
+
+.aboutus_image > img{
+	text-align: left;
+	max-width: 100%;
+	max-height: 550px;
+	border: 2px solid red;
+    border-radius: 25px;
+}
+
+.aboutus_header{
+	font-family: "Papyrus", fantasy;
+	font-size: 20px;
+	font-weight: bold;
+	text-decoration: underline overline red;
+	text-underline-position: under;
+}
+
+.aboutus_p{
+	font-family: "Monaco", monospace;
+}
+
+/*-----------------------------------------------------------  */
+
+/*-----------------Contact----------------------------------  */
+/*-----------------Author: IzziPuk----------------------------------  */
+
+.contact_container{
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	align-items: flex-start; 
+	position: relative;
+	width: 100%;
+}
+.contact_dcontainer{
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: center;
+	align-items: center;
+	padding: 20px; 
+	background-color: white;
+    position: relative;
+    width: 100%;
+	border: 2px dashed red;
+}
+.contact_tcontainer{
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: space-evenly;
+	align-items: flex-start;
+	padding: 20px; 
+    position: relative;
+    margin-top: 5%;
+    width: 27%;
+    row-gap: 30px;
+}
+
+.contact_imgcont{
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+    width: 42%;
+    margin-top: 2%;
+    row-gap: 20px;
+    column-gap: 30px;
+}
+
+.contact_img img{
+	max-width: 250px;
+	max-height: 230px;
+	border: 2px solid white;
+}
+
+.contact_caption{
+	text-align: center;
+	font-weight: bold;
+	font-family: "Papyrus", fantasy;
+}
+/*-----------------------------------------------------------  */
+
+.c_container{
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	align-items: center;
+	column-gap: 10%;
+	margin-top: 7%;
+}
+
+.cart_rcontainer{
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	width: 23%;
+	position: relative;
+	border: 3px dashed red;
+	background-color: white;
+	padding: 20px;
+}
+
+.cart_imgcont{
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	align-items: center;
+	width: 25%;
+	position: relative;
+
+}
+.cart_img img{
+	max-width:150px;
+	max-height: auto;
+}
+
+.cart_logo img{
+	max-width: 250px;
+	max-height: 250px;
+}
+
+
+
+
+
 
