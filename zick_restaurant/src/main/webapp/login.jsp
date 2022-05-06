@@ -30,7 +30,7 @@
 			
 			<tr>
 				<td align="right"><label class="signup_lable" for="password">Password:</label></td>
-				<td align="left"><input type="text" class="signup_input"  name="password"/></td>
+				<td align="left"><input class="signup_input" type="password"  name="password"/></td>
 		</table>
 			<button class="login_button" type="submit">Login</button>
 		</form>

@@ -19,39 +19,33 @@
 </head>
 
 <body>
-
-	<h2>View Order Page</h2>
 	
 	<%
 		Customer customer = (Customer) session.getAttribute("customer");
 	%>
-	
-	<div> Customer name: <%= customer.getFirstName() %></div>
-	
-	<%-- <%
-		List<CartProduct> cart = (List<CartProduct>) session.getAttribute("cart");
-
-		for ( CartProduct obj : cart){%>
-		<div>
-			<%= obj.getName() %> x <%= obj.getQuantity() %>
+	<div class="signup_image"></div>
+	<div class="order_container">
+		<div class="order_scontainer">
+			<div class="order_heading">Name: <%= customer.getFirstName() %></div>
+				
+			<%
+				OrderInfo orderInfo = (OrderInfo) request.getAttribute("orderInfo");
+				List<Product> products = orderInfo.getProducts();
+			%>
+				
+				<div class="order_heading"> Order Status: </div>
+				<div class="orderstatus_container"><%= orderInfo.getStatus() %></div>
+				
 		</div>
-		<%}
-	%> --%>
-	
-	<%
-		OrderInfo orderInfo = (OrderInfo) request.getAttribute("orderInfo");
-		List<Product> products = orderInfo.getProducts();
-	%>
-	
-	<div>Order status: <%= orderInfo.getStatus() %></div>
-	
-	<div>Order details: </div>
-	<%
-		for(Product p : products ){%>
-			<div><%= p.getName() %></div>
-		<%}
-	%>
-	
+		<div class="orderdetail_container">
+			<div class="order_heading">Order details: </div>
+			<%
+				for(Product p : products ){%>
+					<div class="orderdetail_text"><%= p.getName() %></div>
+				<%}
+			%>
+		</div>
+	</div>
 </body>
 
 </html>
