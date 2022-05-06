@@ -8,7 +8,7 @@
 
 </head>
 
-<body>
+<body style= "background-color: grey">
 
 <div class="admin_background">
 	<h1>This is CJai here</h1>
