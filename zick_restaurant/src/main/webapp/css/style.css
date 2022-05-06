@@ -429,6 +429,16 @@ img{
 	max-width: 250px;
 	max-height: 250px;
 }
+.admin_image{
+	width: 100vw;
+	height: 90%;
+	position: absolute;
+	z-index: -2;
+	background-image: url("../Downloads/bgear-and-the-word-admin-3d-illustration-R5YAMD.jpg"); 
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
 
 
 
