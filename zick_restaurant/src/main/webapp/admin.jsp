@@ -8,15 +8,20 @@
 
 </head>
 
-<body style= "background-color: grey">
+<body style= "background-color: black">
+<div class = "admin_containerf">
+<div class = "admin_image">
+<img src="assets/logo.jpg" class="admin_image"></img>
+</div>
+<div class = "admin_container">
 
-<div class="admin_background">
-	<h1>This is CJai here</h1>
-	<h2>This is Admin page</h2>
+
+<h1 class = "admin_text"> Customer List</h1>
 	
 	<c:forEach var="customer" items="${customerList}">
 		<li> ${customer.firstName} </li>
 	</c:forEach>
+</div>
 </div>
 </body>
 
