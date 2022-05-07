@@ -16,6 +16,7 @@
 	<%
 		if(session.getAttribute("adminId") != null){%>
 			<a href="/zick_restaurant/Admin"><button>View all Customers</button></a>	
+			<a href="/zick_restaurant/ViewOrderStatus"><button>View all Orders</button></a>	
 		<%}
 	%>
 	</div>

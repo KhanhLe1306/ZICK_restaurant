@@ -46,17 +46,28 @@ public class PlaceOrder extends HttpServlet {
 		 */
 		System.out.println("id of customer is : " + id);
 		System.out.println();
-		List<CartProduct> cart = (List<CartProduct>) session.getAttribute("cart");
-		float total = (float) session.getAttribute("total");
-		/*
-		 * for (CartProduct obj : cart) { System.out.println(obj.getName()); }
-		 */
 		
-		int orderId = DBUtil.saveOrder(id, cart, total);
-		
-		request.setAttribute("orderId", orderId);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/ViewOrderStatus");
-		dispatcher.forward(request, response);
+		if (session.getAttribute("cart") != null) {
+			System.out.println("Cart is not null");
+			List<CartProduct> cart = (List<CartProduct>) session.getAttribute("cart");
+			session.removeAttribute("cart");		//In case the user refreshes the page! So there is no reorder same thing
+			float total = (float) session.getAttribute("total");
+			/*
+			 * for (CartProduct obj : cart) { System.out.println(obj.getName()); }
+			 */
+			
+			int orderId = DBUtil.saveOrder(id, cart, total);
+			
+			session.setAttribute("orderId", orderId);
+			request.setAttribute("orderId", orderId);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/ViewOrderStatus");
+			dispatcher.forward(request, response);
+		}else {
+			System.out.println("Cart is null");
+			request.setAttribute("orderId", session.getAttribute("orderId"));
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/ViewOrderStatus");
+			dispatcher.forward(request, response);
+		}
 	}
 
 	/**
