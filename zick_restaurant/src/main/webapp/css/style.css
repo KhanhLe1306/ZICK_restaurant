@@ -432,6 +432,45 @@ img{
 	max-height: 250px;
 }
 
+.admin_container{
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: center;
+	align-items: center;
+	border: 3px solid red;
+	background-color: white;
+	width: 70%;
+	position: relative; 
+	font-family: "Monaco", monospace;
+	
+}
+.admin_text{
+	font-size: 25px;
+}
+.admin_imagecont {
+	display: flex;
+	width: 50%;
+	
+}
+
+.admin_containerf{
+	
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: center;
+	align-content: center;
+	row-gap: 100px;
+	width: 34%;
+	position: relative;
+	left: 33%;
+	top: 10%;
+}
+.admin_image img{
+	max-width: 150px;
+	max-height: 150px;
+
+}
+
 /*-----------------------------------------------------------  */
 
 /*-----------------OrderStatus----------------------------------  */
