@@ -5,28 +5,23 @@ import java.util.List;
 public class OrderInfo {
 	int orderId; 
 	int customerId;
+	String firstName;
 	String dateOrdered;
 	String total;
 	String status;
 	List<Product> products;
-	
-	public OrderInfo(int orderId, int customerId, String dateOrdered, String total, String status,
+
+	public OrderInfo(int orderId, int customerId, String firstName, String dateOrdered, String total, String status,
 			List<Product> products) {
 		super();
 		this.orderId = orderId;
 		this.customerId = customerId;
+		this.firstName = firstName;
 		this.dateOrdered = dateOrdered;
 		this.total = total;
 		this.status = status;
 		this.products = products;
 	}
-	
-	@Override
-	public String toString() {
-		return "OrderInfo [orderId=" + orderId + ", customerId=" + customerId + ", dateOrdered=" + dateOrdered
-				+ ", total=" + total + ", status=" + status + ", products=" + products + "]";
-	}
-
 	public int getOrderId() {
 		return orderId;
 	}
@@ -38,6 +33,12 @@ public class OrderInfo {
 	}
 	public void setCustomerId(int customerId) {
 		this.customerId = customerId;
+	}
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 	public String getDateOrdered() {
 		return dateOrdered;

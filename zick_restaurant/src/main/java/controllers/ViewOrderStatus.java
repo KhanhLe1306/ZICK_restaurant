@@ -1,6 +1,7 @@
 package controllers;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -36,12 +37,17 @@ public class ViewOrderStatus extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		
-		int orderId = (int) request.getAttribute("orderId");
 		
-		if(session.getAttribute("adminId") != null) {			//admin
+		if(session.getAttribute("adminId") != null) {	//admin
+			System.out.println("Inside the doGet ViewOrderStatus for Admin");
+			List<OrderInfo> allOrdersInfo = DBUtil.getAllOrdersInfo();
+			
+			request.setAttribute("allOrdersInfo", allOrdersInfo);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/viewAllOrdersStatus.jsp");
+			dispatcher.forward(request, response);
 			
 		}else if (session.getAttribute("customerId") != null) {	//customer
-			
+			int orderId = (int) request.getAttribute("orderId");
 			// get order 
 			OrderInfo orderInfo = DBUtil.getOrderInfo(orderId);
 			

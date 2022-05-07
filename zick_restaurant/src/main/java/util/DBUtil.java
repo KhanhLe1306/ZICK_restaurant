@@ -297,7 +297,7 @@ public class DBUtil {
 		return orderId;
 	}
 	
-	public static OrderInfo getOrderInfo(int orderId) {
+	public static OrderInfo getOrderInfo(int orderId, String firstName) {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		
@@ -352,8 +352,70 @@ public class DBUtil {
 			}
 		}
 		
-		return new OrderInfo(orderId, customerId, dateOrdered, total, status, products);
+		return new OrderInfo(orderId, customerId, firstName, dateOrdered, total, status, products);
 	}
+	
+	public static OrderInfo getOrderInfo(int orderId) {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		
+		int customerId = 0;			//selectSQL1
+		String dateOrdered = null;
+		String total = null;
+		String status = null;	
+		String firstName = null;
+		
+		List<Product> products = new ArrayList<>();	//selectSQL2
+		
+		try {
+			DBConnectionLe.getDBConnection();
+			connection = DBConnectionLe.connection;
+			String selectSQL1 = "select * from OrderList as ol join Customer as c on ol.Customer_id = c.Customer_id where Order_id = ?";
+			preparedStatement = connection.prepareStatement(selectSQL1);
+			preparedStatement.setInt(1, orderId);
+			ResultSet rs1 = preparedStatement.executeQuery();	
+			if(rs1.next()) {		//Only one record cuz orderId is a PK
+				customerId = rs1.getInt("Customer_id");
+				firstName = rs1.getString("FirstName");
+				dateOrdered = rs1.getString("Date_order");
+				total = rs1.getString("Total");
+				status = rs1.getString("Status");
+			}
+			
+			String selectSQL2 = "select * from Product "
+							  + "inner join OrderDetail on OrderDetail.Product_code = Product.Product_code "
+							  + "where OrderDetail.Order_id = ?";
+			preparedStatement = connection.prepareStatement(selectSQL2);
+			preparedStatement.setInt(1, orderId);
+			ResultSet rs2 = preparedStatement.executeQuery();
+			while(rs2.next()) {
+				String pcode = rs2.getString("Product_code");
+				String name = rs2.getString("Name");
+				String price = rs2.getString("Price");
+				String desc = rs2.getString("Description");
+				products.add(new Product(pcode, name, price, desc));
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} catch (SQLException se2) {
+			}
+			try {
+				if (connection != null)
+					connection.close();
+			} catch (SQLException se) {
+				se.printStackTrace();
+			}
+		}
+		
+		return new OrderInfo(orderId, customerId, firstName, dateOrdered, total, status, products);
+	}
+	
+	
 	
 	public static String getCurrentDate() {
 		LocalDateTime myDateObj = LocalDateTime.now();
@@ -363,6 +425,83 @@ public class DBUtil {
 	    String formattedDate = myDateObj.format(myFormatObj);
 	    return formattedDate;
 	}
+	
+	
+	
+
+	public static List<OrderInfo> getAllOrdersInfo() {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		
+		List<OrderInfo> allOrdersInfo = new ArrayList<>();
+		
+		int customerId = 0;			
+		String dateOrdered = null;
+		String total = null;
+		String status = null;	
+		String firstName = null;
+		
+		try {
+			DBConnectionLe.getDBConnection();
+			connection = DBConnectionLe.connection;
+			String selectSQL1 = "select ol.Order_id, c.FirstName from OrderList as ol join Customer as c on ol.Customer_id = c.Customer_id";
+			preparedStatement = connection.prepareStatement(selectSQL1);
+			ResultSet rs1 = preparedStatement.executeQuery();	
+			while(rs1.next()) {
+				int orderId = rs1.getInt("Order_id");
+				firstName = rs1.getString("FirstName");
+//				System.out.println(orderId);
+//				allOrdersInfo.add(getOrderInfo(orderId, firstName));
+				
+				
+				String selectSQL3 = "select * from OrderList as ol join Customer as c on ol.Customer_id = c.Customer_id where Order_id = ?";
+				preparedStatement = connection.prepareStatement(selectSQL3);
+				preparedStatement.setInt(1, orderId);
+				ResultSet rs3 = preparedStatement.executeQuery();	
+				if(rs3.next()) {		//Only one record cuz orderId is a PK
+					customerId = rs3.getInt("Customer_id");
+					dateOrdered = rs3.getString("Date_order");
+					total = rs3.getString("Total");
+					status = rs3.getString("Status");
+				}
+				
+				String selectSQL2 = "select * from Product "
+								  + "inner join OrderDetail on OrderDetail.Product_code = Product.Product_code "
+								  + "where OrderDetail.Order_id = ?";
+				preparedStatement = connection.prepareStatement(selectSQL2);
+				preparedStatement.setInt(1, orderId);
+				ResultSet rs2 = preparedStatement.executeQuery();
+				List<Product> products = new ArrayList<>();
+				while(rs2.next()) {
+					String pcode = rs2.getString("Product_code");
+					String name = rs2.getString("Name");
+					String price = rs2.getString("Price");
+					String desc = rs2.getString("Description");
+					products.add(new Product(pcode, name, price, desc));
+				}
+				
+				allOrdersInfo.add(new OrderInfo(orderId, customerId, firstName, dateOrdered, total, status, products));
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} catch (SQLException se2) {
+			}
+			try {
+				if (connection != null)
+					connection.close();
+			} catch (SQLException se) {
+				se.printStackTrace();
+			}
+		}
+		
+		return allOrdersInfo;
+	}
+	
 	
 
 //	public static void insertTodo(String title, String done) {
