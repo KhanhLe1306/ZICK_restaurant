@@ -12,29 +12,30 @@
 <link type="text/css" rel="stylesheet" href="css/style.css">
 <style type="text/css">
 
-	div{
-		margin-bottom: 15px;
-	}
 </style>
 </head>
 
 <body>
-
-	<h2>View All Orders Page</h2>
+	<h1>Update Order Status</h1>
 	
 	
 	<%
-		List<OrderInfo> allOrdersInfo = (List<OrderInfo>) request.getAttribute("allOrdersInfo");
-		List<Product> products;	
+		OrderInfo order = (OrderInfo) request.getAttribute("orderInfo");
+		List<Product> products = order.getProducts();	
 	%>
 	
-		<% for(OrderInfo order : allOrdersInfo) { products = order.getProducts();%>
-		<form action="UpdateOrderStatus" method="post">
+		
+		<form action="UpdateOrderStatus" method="get">
 		<div>
 			<input type="hidden" name="orderId" value="<%= order.getOrderId() %>" />
 			<span>Customer name: <%= order.getFirstName() %> | </span>
 			<span>Order id: <%= order.getOrderId() %> | </span>
 			<span>Order status: <%= order.getStatus() %> | </span>
+			<select name="status">
+				<option <% if (order.getStatus() == "order") {%> selected  <%}%> value="ordered">ordered</option>
+				<option <% if (order.getStatus() == "inprogress") {%> selected  <%}%> value="inprogress">in progress</option>
+				<option <% if (order.getStatus() == "done") {%> selected  <%}%> value="done">done</option>
+			</select>
 			<span>Order details: </span>
 		<%
 			for(Product p : products ){%>
@@ -44,17 +45,7 @@
 		<button type="submit">Update</button>
 		</div>
 		</form>
-	<%}%>
-	
-	
-	<%-- <form action="UpdateOrderStatus" method="post">
-		<c:forEach var="order" items="${allOrdersInfo}">
-			 
-		</c:forEach>
-	</form> --%>
-	
 
-	
 </body>
 
 </html>
