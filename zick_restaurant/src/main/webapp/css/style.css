@@ -534,7 +534,68 @@ img{
 	font-family: "Monaco", monospace;
 }
 /*-----------------------------------------------------------  */
+.indv_containerl{
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: center;
+	align-items: center;
+	border: 4px dashed red;
+	background-color: white;
+	left: 25%;
+	width: 45%;
+	position: relative; 
+	font-family: "Monaco", monospace;
+	
+}
 
+.individual_container{
+	
+	display: flex;
+	flex-flow: column wrap;
+	top: 20%;
+	justify-content: center;
+	align-content: center;
+	row-gap: 100px;
+	width: 34%;
+	position: relative;
+	left: 33%;
+	bottom: 50%;
+}
+.indv_label{
+	font-size: 20px;
+	color: white;
+	position: relative;
+	top: 75px;
+	left: 100px;
+}
+.indv_input{
+	font-size: 19px;
+	color: black;
+	position: relative;
+	top: 200px;
+	left: 105px;
+}
+.indv_text{
+	font-size: 40px;
+	font-weight: bold;
+	text-align: center;
+	font-family: "Monaco", monospace;
+	color: black;
+	margin-top: 40%;
+	margin-bottom: 20%;
+
+}
+.indv_imagecont {
+	display: flex;
+	width: 70%;
+	
+}
+.indv_image img{
+	max-width: 150px;
+	max-height: 160px;
+	bottom: 200px;
+
+}
 
 
 
