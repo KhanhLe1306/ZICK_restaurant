@@ -444,8 +444,10 @@ public class DBUtil {
 		try {
 			DBConnectionLe.getDBConnection();
 			connection = DBConnectionLe.connection;
-			String selectSQL1 = "select ol.Order_id, c.FirstName from OrderList as ol join Customer as c on ol.Customer_id = c.Customer_id";
+			String selectSQL1 = "select ol.Order_id, c.FirstName from OrderList as ol join Customer as c on ol.Customer_id = c.Customer_id where ol.Status IN (?, ?)";
 			preparedStatement = connection.prepareStatement(selectSQL1);
+			preparedStatement.setString(1, "ordered");
+			preparedStatement.setString(2, "inprogress");
 			ResultSet rs1 = preparedStatement.executeQuery();	
 			while(rs1.next()) {
 				int orderId = rs1.getInt("Order_id");
@@ -500,6 +502,35 @@ public class DBUtil {
 		}
 		
 		return allOrdersInfo;
+	}
+
+	public static void updateOrderStatus(int orderId, String status) {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;	
+		
+		try {
+			DBConnectionLe.getDBConnection();
+			connection = DBConnectionLe.connection;
+			String updateSQL = "update OrderList set Status = ? where Order_id = ?";
+			preparedStatement = connection.prepareStatement(updateSQL);
+			preparedStatement.setString(1, status);
+			preparedStatement.setInt(2, orderId);
+			preparedStatement.executeUpdate();			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} catch (SQLException se2) {
+			}
+			try {
+				if (connection != null)
+					connection.close();
+			} catch (SQLException se) {
+				se.printStackTrace();
+			}
+		}
 	}
 	
 	
