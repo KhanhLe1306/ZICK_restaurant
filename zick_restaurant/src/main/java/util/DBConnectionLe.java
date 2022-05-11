@@ -6,7 +6,7 @@ public class DBConnectionLe {
    static Connection connection = null;
 
    static void getDBConnection() {
-      System.out.println("-------- MySQL JDBC Connection Testing ------------");
+      //System.out.println("-------- MySQL JDBC Connection Testing ------------");
       try {
          Class.forName("com.mysql.jdbc.Driver");
       } catch (ClassNotFoundException e) {
@@ -14,7 +14,7 @@ public class DBConnectionLe {
          e.printStackTrace();
          return;
       }
-      System.out.println("MySQL JDBC Driver Registered!");
+      //System.out.println("MySQL JDBC Driver Registered!");
 
       connection = null;
       try {
@@ -27,7 +27,7 @@ public class DBConnectionLe {
       }
 
       if (connection != null) {
-         System.out.println("You made it, take control your database now!");
+         //System.out.println("You made it, take control your database now!");
       } else {
          System.out.println("Failed to make connection!");
       }
@@ -35,19 +35,19 @@ public class DBConnectionLe {
 
    static String getURL() {
       String url = UtilPropLe.getProp("url");
-      System.out.println("[DBG] URL: " + url);
+      //System.out.println("[DBG] URL: " + url);
       return url;
    }
 
    static String getUserName() {
       String usr = UtilPropLe.getProp("user");
-      System.out.println("[DBG] URL: " + usr);
+      //System.out.println("[DBG] URL: " + usr);
       return usr;
    }
 
    static String getPassword() {
       String pwd = UtilPropLe.getProp("password");
-      System.out.println("[DBG] URL: " + pwd);
+      //System.out.println("[DBG] URL: " + pwd);
       return pwd;
    }
 }
