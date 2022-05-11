@@ -8,6 +8,7 @@
 
 </head>
 
+
 <body style= "background-color: black">
 <div class = "admin_containerf">
 <div class = "admin_image">
@@ -17,12 +18,15 @@
 
 
 <h1 class = "admin_text"> Customer List</h1>
+
 	
 	<c:forEach var="customer" items="${customerList}">
 		<li> ${customer.firstName} </li>
 	</c:forEach>
 </div>
+
 </div>
+
 </body>
 
 

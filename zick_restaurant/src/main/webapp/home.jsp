@@ -7,11 +7,11 @@
 </head>
 
 <body>
+
 	<div class="home__body">
 	<div class="intro">
 		<p>Delivering great food for more than 18 years!</p>
 	<a href="/zick_restaurant/Menu"><button>View Menu</button></a>
-	<a href="/zick_restaurant/Menu"><button>Order Now</button></a>
 	
 	<%
 		if(session.getAttribute("adminId") != null){%>
@@ -20,6 +20,7 @@
 		<%}
 	%>
 	</div>
+
 	</div>
 	
 	<div class="image">
