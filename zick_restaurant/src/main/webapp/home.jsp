@@ -7,18 +7,18 @@
 </head>
 
 <body>
+
 	<div class="home__body">
-	<div class="intro">
-		<p>Delivering great food for more than 18 years!</p>
-	<a href="/zick_restaurant/Menu"><button>View Menu</button></a>
-	<a href="/zick_restaurant/Menu"><button>Order Now</button></a>
-	
-	<%
-		if(session.getAttribute("adminId") != null){%>
-			<a href="/zick_restaurant/Admin"><button>View all Customers</button></a>	
-		<%}
-	%>
-	</div>
+		<div class="intro">
+			<p>Serving great food for more than 18 years!</p>
+		<a href="/zick_restaurant/Menu"><button>View Menu</button></a>
+		
+		<%
+			if(session.getAttribute("adminId") != null){%>
+				<a href="/zick_restaurant/Admin"><button class="home_button">View all Customers</button></a>	
+			<%}
+		%>
+		</div>
 	</div>
 	
 	<div class="image">
