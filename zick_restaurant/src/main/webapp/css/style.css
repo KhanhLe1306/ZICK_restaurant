@@ -444,6 +444,9 @@ img{
 	max-height: 250px;
 }
 
+/*-----------------Admin----------------------------------  */
+/*-----------------Author: Cjai----------------------------------  */
+
 .admin_container{
 	display: flex;
 	flex-flow: column wrap;
@@ -545,7 +548,12 @@ img{
 	text-align: center;
 	font-family: "Monaco", monospace;
 }
+
 /*-----------------------------------------------------------  */
+
+/*-----------------Individual----------------------------------  */
+/*-----------------Author: Cjai----------------------------------  */
+
 .indv_containerl{
 	display: flex;
 	flex-flow: column wrap;
@@ -595,13 +603,14 @@ img{
 	color: black;
 	margin-top: 40%;
 	margin-bottom: 20%;
-
 }
+
 .indv_imagecont {
 	display: flex;
 	width: 70%;
 	
 }
+
 .indv_image img{
 	max-width: 150px;
 	max-height: 160px;
@@ -609,5 +618,76 @@ img{
 
 }
 
+/*-----------------------------------------------------------  */
 
+/*-----------------viewAllOrderStatus-----------------------  */
+/*-----------------Author: IzziPuk----------------------------------  */
+
+.allorders_acontainer{
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	padding: 75px;
+}
+.allorders_container{
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 2%;
+	width: 100%;
+}
+
+.allorders_pcontainer{
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: flex-start;
+	align-items: center;
+	width: 400px;
+	height: 100%;
+	padding: 20px;
+	padding-bottom: 30px;
+	border: 2px dashed red;
+	position: relative;
+}
+
+.allorders_text{
+	font-size: 16px;
+	font-family: "Monaco", monospace;
+}
+
+.allorders_details{
+	font-size: 14px;
+	font-family:"Monaco", monospace;
+}
+
+.allorders_button{
+	position: absolute;
+	bottom: 3%;
+	margin-top: 10%;
+}
+.allorders_header{
+	font-size: 2rem;
+	color: white;
+	text-decoration: overline underline;
+	font-family: "Papyrus", fantasy;
+	text-underline-position: under;
+}
+
+.allorders_status {
+	display: flex;
+	justify-content: center;
+	border: 2px solid white;
+	border-radius: 50%;
+	background-color: red;
+	color: white;
+	font-weight: bold;
+	font-size: 16px;
+	margin-top: 3%;
+	width: 25%;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+/*-----------------------------------------------------------  */
 
