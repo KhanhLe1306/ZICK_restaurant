@@ -71,7 +71,7 @@ img{
 	min-height: 100%;
 }
 
-/*---------------------------Menu----------------------------------  */
+/*---------------------------Home----------------------------------  */
 /*---------------------------Author: KhanhLe----------------------------------  */
 
 .home__body{
@@ -82,12 +82,16 @@ img{
 	width: 35%;
 	position: absolute;
 	top: 30%;
-	left: 65%;
+	left: 64%;
 }
 .intro p{
 	font-size: 2rem;
+	text-align: center;
+	font-family: "Lucidia Console", monospace;
 	margin-bottom: 2rem;
+	color: white;
 }
+
 .intro a{
 	margin-right: 2rem;
 }
@@ -104,9 +108,12 @@ img{
 	background-size: cover;
 }
 
-.home_button{
-	position: relative;
-	left: 50%;
+.home_buttoncon{
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: center;
+	align-items: center;
+	row-gap: 10px;
 }
 
 /*-----------------------------------------------------------  */ 
@@ -231,26 +238,26 @@ img{
 	background-size: cover;
 }
 
-.signup_headerimg{
-	width: 450px;
-	height: 230px;
-	position: relative;
-	top: 5%;
-	left: 36%;
-	z-index: -1; 
-	background: url("../assets/logo.jpg"); 
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
+.signup_headerimg img{
+	max-width: 300px;
+	max-height: 200px;
 
 }
-
 
 .signup_button{
 	font-weight: bold;
 	position: relative;
 	top: 100px;
 	left: 205px;
+}
+
+.signup_imgcon{
+	display: flex;
+	width: 20%;
+	height: 20%;
+	margin-top: 5%;
+	position: relative;
+	left: 42%;
 }
 
 /*-----------------------------------------------------------  */
@@ -265,8 +272,7 @@ img{
 	justify-content: center;
 	position: relative;
     width: 50%;
-    top: 3%;
-    left: 34%;
+    left: 33%;
 }
 
 
