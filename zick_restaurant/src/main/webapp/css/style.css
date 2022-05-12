@@ -71,7 +71,7 @@ img{
 	min-height: 100%;
 }
 
-/*---------------------------Menu----------------------------------  */
+/*---------------------------Home----------------------------------  */
 /*---------------------------Author: KhanhLe----------------------------------  */
 
 .home__body{
@@ -82,12 +82,16 @@ img{
 	width: 35%;
 	position: absolute;
 	top: 30%;
-	left: 65%;
+	left: 64%;
 }
 .intro p{
 	font-size: 2rem;
+	text-align: center;
+	font-family: "Lucidia Console", monospace;
 	margin-bottom: 2rem;
+	color: white;
 }
+
 .intro a{
 	margin-right: 2rem;
 }
@@ -104,9 +108,12 @@ img{
 	background-size: cover;
 }
 
-.home_button{
-	position: relative;
-	left: 50%;
+.home_buttoncon{
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: center;
+	align-items: center;
+	row-gap: 10px;
 }
 
 /*-----------------------------------------------------------  */ 
@@ -231,26 +238,26 @@ img{
 	background-size: cover;
 }
 
-.signup_headerimg{
-	width: 450px;
-	height: 230px;
-	position: relative;
-	top: 5%;
-	left: 36%;
-	z-index: -1; 
-	background: url("../assets/logo.jpg"); 
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
+.signup_headerimg img{
+	max-width: 300px;
+	max-height: 200px;
 
 }
-
 
 .signup_button{
 	font-weight: bold;
 	position: relative;
 	top: 100px;
 	left: 205px;
+}
+
+.signup_imgcon{
+	display: flex;
+	width: 20%;
+	height: 20%;
+	margin-top: 5%;
+	position: relative;
+	left: 42%;
 }
 
 /*-----------------------------------------------------------  */
@@ -265,8 +272,7 @@ img{
 	justify-content: center;
 	position: relative;
     width: 50%;
-    top: 3%;
-    left: 34%;
+    left: 33%;
 }
 
 
@@ -444,6 +450,9 @@ img{
 	max-height: 250px;
 }
 
+/*-----------------Admin----------------------------------  */
+/*-----------------Author: Cjai----------------------------------  */
+
 .admin_container{
 	display: flex;
 	flex-flow: column wrap;
@@ -545,7 +554,12 @@ img{
 	text-align: center;
 	font-family: "Monaco", monospace;
 }
+
 /*-----------------------------------------------------------  */
+
+/*-----------------Individual----------------------------------  */
+/*-----------------Author: Cjai----------------------------------  */
+
 .indv_containerl{
 	display: flex;
 	flex-flow: column wrap;
@@ -595,13 +609,14 @@ img{
 	color: black;
 	margin-top: 40%;
 	margin-bottom: 20%;
-
 }
+
 .indv_imagecont {
 	display: flex;
 	width: 70%;
 	
 }
+
 .indv_image img{
 	max-width: 150px;
 	max-height: 160px;
@@ -609,5 +624,155 @@ img{
 
 }
 
+/*-----------------------------------------------------------  */
+
+/*-----------------viewAllOrderStatus-----------------------  */
+/*-----------------Author: IzziPuk----------------------------------  */
+
+.allorders_acontainer{
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	padding: 75px;
+}
+.allorders_container{
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 2%;
+	width: 100%;
+}
+
+.allorders_pcontainer{
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: flex-start;
+	align-items: center;
+	width: 400px;
+	height: 100%;
+	padding: 20px;
+	padding-bottom: 30px;
+	border: 2px dashed red;
+	position: relative;
+}
+
+.allorders_text{
+	font-size: 16px;
+	font-family: "Monaco", monospace;
+}
+
+.allorders_details{
+	font-size: 14px;
+	font-family:"Monaco", monospace;
+}
+
+.allorders_button{
+	position: absolute;
+	bottom: 3%;
+	margin-top: 10%;
+}
+
+.allorders_header{
+	font-size: 2rem;
+	color: white;
+	text-decoration: overline underline;
+	font-family: "Papyrus", fantasy;
+	text-underline-position: under;
+}
+
+.allorders_status {
+	display: flex;
+	justify-content: center;
+	border: 2px solid white;
+	border-radius: 50%;
+	background-color: red;
+	color: white;
+	font-weight: bold;
+	font-size: 16px;
+	margin-top: 3%;
+	width: 25%;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+/*-----------------------------------------------------------  */
+
+/*-----------------updateOrderStatus-----------------------  */
+/*-----------------Author: IzziPuk----------------------------------  */
+
+.update_container{
+	display: flex;
+	flex-flow: row wrap;
+	position: relative;
+	justify-content: space-evenly;
+	align-items: center;
+}
+.update_acontainer{
+	display: flex;
+	flex-flow: column wrap;
+	align-items: center;
+	justify-content: center;
+	margin-top: 2%;
+}
+.update_bcontainer{
+	display: flex;
+	flex-flow: column wrap;
+	align-items: center;
+	border: 2px dashed red;
+	padding: 30px;
+	width: 100%;
+	margin-top: 6%;
+	row-gap: 10px;
+}
+
+.update_statuscontainer{
+	display: flex;
+	justify-content: center;
+	width: 50%;
+	border: 2px solid white;
+	border-radius: 50%;
+	background-color: red;
+	color: white;
+	font-weight: bold;
+	font-size: 16px;
+	margin-top: 3%;
+	padding-top: 35px;
+	padding-bottom: 35px;
+}
+
+.update_text{
+	font-size: 1.10rem;
+	color: white;
+	font-family: "Monaco", monospace;
+}
+
+.update_header{
+	color: white;
+	font-size: 1.25rem;
+	color: whtie;
+    text-decoration: overline underline;
+	font-family: "Papyrus", fantasy;
+	text-underline-position: under;
+}
+
+.update_button{
+	position: relative;
+	left: 32%;
+	margin-top: 5%;
+	margin-bottom: 5%;
+}
+
+.update_logo img{
+	max-width: 500px;
+	max-height: 500px;
+}
+
+.update_imgcon{
+	display: flex;
+	height: 50%; 
+}
 
 
+
+/*-----------------------------------------------------------  */

@@ -18,35 +18,37 @@
 </style>
 </head>
 
-<body>
+<body style="background-color: black">
 
-	<h2>View All Orders Page</h2>
+<div class="allorders_acontainer">
+	<h2 class="allorders_header">All Orders</h2>
 	
 	
 	<%
 		List<OrderInfo> allOrdersInfo = (List<OrderInfo>) request.getAttribute("allOrdersInfo");
 		List<Product> products;	
 	%>
-	
+	<div class="allorders_container">
 		<% for(OrderInfo order : allOrdersInfo) { products = order.getProducts();%>
 		<form action="UpdateOrderStatus" method="post">
-		<div>
+		<div class="allorders_pcontainer">
 			<input type="hidden" name="orderId" value="<%= order.getOrderId() %>" />
-			<span>Customer name: <%= order.getFirstName() %> | </span>
-			<span>Order id: <%= order.getOrderId() %> | </span>
-			<span>Order status: <%= order.getStatus() %> | </span>
-			<span>Order details: </span>
+			<div class="allorders_text">Customer Name: <%= order.getFirstName() %> </div>
+			<div class="allorders_text">Order ID: <%= order.getOrderId() %> </div>
+			<h3 class="allorders_text">Order Status: </h3>
+			<div class="allorders_status"> <%= order.getStatus() %> </div>
+			<div class="allorders_text">Order Details: </div>
 		<%
 			for(Product p : products ){%>
-				<span><%= p.getName() %> | </span>
+				<div class="allorders_details"><%= p.getName() %> </div>
 			<%}
 		%>
-		<button type="submit">Update</button>
+		<button type="submit" class="allorders_button">Update</button>
 		</div>
 		</form>
 	<%}%>
 	
-	
+	</div>
 	<%-- <form action="UpdateOrderStatus" method="post">
 		<c:forEach var="order" items="${allOrdersInfo}">
 			 
@@ -54,7 +56,7 @@
 	</form> --%>
 	
 
-	
+</div>
 </body>
 
 </html>

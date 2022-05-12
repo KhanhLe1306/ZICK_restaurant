@@ -18,7 +18,10 @@
 	<div class="signup_image">
 	</div>
 	
-	<div class="signup_headerimg">
+	<div class="signup_imgcon">
+		<div class="signup_headerimg">
+			<img src="assets/logo.jpg">
+		</div>
 	</div>
 		
 	<div class="signup_container">
